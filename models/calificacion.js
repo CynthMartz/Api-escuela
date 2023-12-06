@@ -1,29 +1,36 @@
 const mongoose = require('mongoose');
 
-const calificacionSchema = new mongoose.Schema({
+const CalificacionSchema = new mongoose.Schema({
+    id_calificacion:{
+        type: String,
+        required: true 
+    },
+    tipo:{
+        type: String,
+        required: true
+    },
+    nota:{
+        type: Number,
+        required: true
+    },
+    fecha: { 
+        type: Date, 
+        required: true, 
+        default: Date.now() 
+    },
     alumno: { 
         type: mongoose.Schema.Types.ObjectId, ref: 'Alumno', 
-        required: true 
-    },
-    curso: { 
-        type: mongoose.Schema.Types.ObjectId, ref: 'Curso', 
-        required: true 
-    },
-    modulo: { 
-        type: mongoose.Schema.Types.ObjectId, ref: 'Modulo', 
         required: true 
     },
     pregunta: { 
         type: mongoose.Schema.Types.ObjectId, ref: 'Pregunta', 
         required: true 
-    },
-    fecha: { 
-        type: Date, required: true, default: Date.now() 
     }
+    
 },
 {
     timestamps: true
 }
 );
 
-module.exports = mongoose.model('Calificacion', calificacionSchema);
+module.exports = mongoose.model('calificacion', CalificacionSchema);

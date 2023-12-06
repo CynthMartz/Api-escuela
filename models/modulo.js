@@ -1,20 +1,12 @@
 const mongoose = require('mongoose');
 
-const moduloSchema = new mongoose.Schema({
-    //id_modulo: {
-     //   type: String,
-       // required: true
-   // },
-    nombre: { 
-        type: String, 
-        required: true 
-    },
-    descripcion: { 
+const ModuloSchema = new mongoose.Schema({
+    id_modulo: {
         type: String,
-        required: true 
+        required: true
     },
-    alumno: {
-        type: mongoose.Schema.Types.ObjectId, ref: 'alumno',
+    nombre_modulo: { 
+        type: String, 
         required: true 
     }
 },
@@ -23,5 +15,5 @@ const moduloSchema = new mongoose.Schema({
 }
 );
 
-module.exports = mongoose.model('Modulo', moduloSchema);
+module.exports = mongoose.model('modulo', ModuloSchema);
 

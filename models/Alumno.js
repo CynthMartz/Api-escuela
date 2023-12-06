@@ -1,7 +1,10 @@
 const mongoose = require('mongoose');
 
-const alumnoSchema = new mongoose.Schema({
-    
+const AlumnoSchema = new mongoose.Schema({
+    id_alumno:{
+        type: String,
+        required: true
+    },
     nombre: {
         type: String,
         required: true
@@ -20,7 +23,7 @@ const alumnoSchema = new mongoose.Schema({
     },
     email: {
         type: String,
-        required: [true, 'El correo es obligatorio'],
+        unique: [true, 'El correo es obligatorio'],
         lowercase: true,
     },
 },
@@ -30,7 +33,7 @@ const alumnoSchema = new mongoose.Schema({
 }
 )
 
-//module.exports = mongoose.model('Alumno', alumnoSchema);
+module.exports = mongoose.model('alumno', AlumnoSchema);
 
-const Alumno = mongoose.model('Alumno', alumnoSchema);
-module.exports = Alumno;
+//const Alumno = mongoose.model('alumno', AlumnoSchema);
+//module.exports = Alumno;

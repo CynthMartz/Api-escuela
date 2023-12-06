@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const preguntaSchema = new mongoose.Schema({
+const PreguntaSchema = new mongoose.Schema({
     id_pregunta: {
         type: String,
         required: true
@@ -12,7 +12,7 @@ const preguntaSchema = new mongoose.Schema({
         type: String,
         default: null,
     },
-    respuestas: {
+    estado: {
         type: String, 
         required: true 
     }
@@ -22,4 +22,4 @@ const preguntaSchema = new mongoose.Schema({
 }
 );
 
-module.exports = mongoose.model('Pregunta', preguntaSchema);
+module.exports = mongoose.model('pregunta', PreguntaSchema);

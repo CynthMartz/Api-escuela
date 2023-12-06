@@ -1,21 +1,17 @@
 const mongoose = require('mongoose');
 
-const grupoSchema = new mongoose.Schema({
+const GrupoSchema = new mongoose.Schema({
     id_grupo: {
         type: String,
         required: true
     },
-    nombre: { 
+    nombre_grupo: { 
         type: String, 
         required: true
     },
-    grado: { 
-        type: Number, 
-        required: true 
-    },
-
-    alumno: [{ 
-        type: mongoose.Schema.Types.ObjectId, ref: 'Alumno' 
+    periodo: [{ 
+        type: String, 
+        required: true
     }]
 },
 {
@@ -23,5 +19,5 @@ const grupoSchema = new mongoose.Schema({
 }
 );
 
-module.exports = mongoose.model('Grupo', grupoSchema);
+module.exports = mongoose.model('grupo', GrupoSchema);
 
