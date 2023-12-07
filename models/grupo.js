@@ -2,17 +2,16 @@ const mongoose = require('mongoose');
 
 const GrupoSchema = new mongoose.Schema({
     id_grupo: {
-        type: String,
+        type: Number,
         required: true
     },
     nombre_grupo: { 
         type: String, 
         required: true
     },
-    periodo: [{ 
+    periodo: { 
         type: String, 
-        required: true
-    }]
+    }
 },
 {
     timestamps: true

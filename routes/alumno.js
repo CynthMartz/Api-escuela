@@ -1,11 +1,10 @@
 const express = require('express');
 const router = express.Router();
+const {getItems, getItem, createItem} = require ("../controllers/alumno")
 
-router.get("/alumno", (req, res) =>{
-    const data = ["hola", "soy cynthia"]
+router.get("/", getItems);
 
-    res.send ({data})
-})
+router.post("/", createItem);
 
 
 

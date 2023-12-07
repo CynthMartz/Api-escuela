@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const PreguntaSchema = new mongoose.Schema({
     id_pregunta: {
-        type: String,
+        type: Number,
         required: true
     },
     title:{
@@ -14,12 +14,13 @@ const PreguntaSchema = new mongoose.Schema({
     },
     estado: {
         type: String, 
-        required: true 
+    },
+    id_capitulo: { 
+        type: mongoose.Schema.Types.ObjectId, ref: 'CapituloSchema' 
     }
 },
 {
     timestamps: true
-}
-);
+});
 
 module.exports = mongoose.model('pregunta', PreguntaSchema);

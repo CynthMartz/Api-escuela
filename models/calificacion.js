@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const CalificacionSchema = new mongoose.Schema({
     id_calificacion:{
-        type: String,
+        type: Number,
         required: true 
     },
     tipo:{
@@ -18,19 +18,18 @@ const CalificacionSchema = new mongoose.Schema({
         required: true, 
         default: Date.now() 
     },
-    alumno: { 
-        type: mongoose.Schema.Types.ObjectId, ref: 'Alumno', 
+    id_alumno: { 
+        type: mongoose.Schema.Types.ObjectId, ref: 'AlumnoSchema', 
         required: true 
     },
-    pregunta: { 
-        type: mongoose.Schema.Types.ObjectId, ref: 'Pregunta', 
+    id_pregunta: { 
+        type: mongoose.Schema.Types.ObjectId, ref: 'PreguntaSchema', 
         required: true 
     }
     
 },
 {
     timestamps: true
-}
-);
+});
 
 module.exports = mongoose.model('calificacion', CalificacionSchema);
