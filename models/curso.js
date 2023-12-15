@@ -7,12 +7,9 @@ const CursoSchema = new mongoose.Schema({
     nombre_curso: { 
         type: String, 
         required: true 
-    },
-    nivel: { 
-        type: String, 
-        required: true 
     }
 },
+
 {
     timestamps: true
 }
