@@ -1,11 +1,13 @@
 const express = require('express');
 const router = express.Router();
-/*const {validatorCreateItem} = require ("../validators/curso");*/
+const {validatorCreateItem} = require ("../validators/pregunta");
 const {getItems, getItem, createItem} = require ("../controllers/pregunta")
 
+/*Listar los items*/ 
 router.get("/", getItems);
 
-router.post("/", /*validatorCreateItem,*/ createItem);
+/*Obtener detalle de item*/ 
+router.post("/",validatorCreateItem, createItem);
 
 
 

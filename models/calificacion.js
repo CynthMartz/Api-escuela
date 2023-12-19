@@ -14,11 +14,11 @@ const CalificacionSchema = new mongoose.Schema({
         required: true, 
         default: Date.now() 
     },
-    alumno: { 
+    alumnoId: { 
         type: mongoose.Schema.Types.ObjectId, ref: 'AlumnoSchema', 
         required: true 
     },
-    pregunta: { 
+    preguntaId: { 
         type: mongoose.Schema.Types.ObjectId, ref: 'PreguntaSchema', 
         required: true 
     }

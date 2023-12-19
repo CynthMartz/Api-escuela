@@ -11,7 +11,7 @@ const PreguntaSchema = new mongoose.Schema({
     estado: {
         type: String, 
     },
-    id_capitulo: { 
+    capituloId: { 
         type: mongoose.Schema.Types.ObjectId, ref: 'CapituloSchema' 
     }
 },

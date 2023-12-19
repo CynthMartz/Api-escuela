@@ -23,8 +23,8 @@ const AlumnoSchema = new mongoose.Schema({
         lowercase: true,
         
     },
-    id_grupo: { 
-        type: mongoose.Schema.Types.ObjectId, ref: 'GrupoSchema'
+    grupoId: { 
+        type: mongoose.Schema.Types.ObjectId, ref: 'Grupo'
 }
 },
 //se usa para rastrear cuando se guarda y se modifica la base de datos

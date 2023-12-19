@@ -5,7 +5,7 @@ const CapituloSchema = new mongoose.Schema({
         type: String,
         required: true 
     },
-    modulo: { 
+    moduloId: { 
         type: mongoose.Schema.Types.ObjectId, ref: 'ModuloSchema' 
     }
 },

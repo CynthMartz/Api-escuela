@@ -5,7 +5,7 @@ const ModuloSchema = new mongoose.Schema({
         type: String, 
         required: true 
     },
-    curso: { 
+    cursoId: { 
         type: mongoose.Schema.Types.ObjectId, ref: 'Curso' 
     }
 },
