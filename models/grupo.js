@@ -1,10 +1,6 @@
 const mongoose = require('mongoose');
 
 const GrupoSchema = new mongoose.Schema({
-    id_grupo: {
-        type: Number,
-        required: true
-    },
     nombre_grupo: { 
         type: String, 
         required: true
@@ -17,6 +13,11 @@ const GrupoSchema = new mongoose.Schema({
     timestamps: true
 }
 );
+
+GrupoSchema.method('toJSON', function(){
+    const {__v, ...object } = this.toObject();
+    return object;
+})
 
 module.exports = mongoose.model('grupo', GrupoSchema);
 

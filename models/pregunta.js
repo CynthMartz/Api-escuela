@@ -1,14 +1,10 @@
 const mongoose = require('mongoose');
 
 const PreguntaSchema = new mongoose.Schema({
-    id_pregunta: {
-        type: Number,
-        required: true
-    },
-    title:{
+    título:{
         type: String
     },
-    description: {
+    descripción: {
         type: String,
         default: null,
     },
@@ -23,4 +19,8 @@ const PreguntaSchema = new mongoose.Schema({
     timestamps: true
 });
 
+PreguntaSchema.method('toJSON', function(){
+    const {__v, ...object } = this.toObject();
+    return object;
+})
 module.exports = mongoose.model('pregunta', PreguntaSchema);

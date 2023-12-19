@@ -1,10 +1,6 @@
 const mongoose = require('mongoose');
 
 const CalificacionSchema = new mongoose.Schema({
-    id_calificacion:{
-        type: Number,
-        required: true 
-    },
     tipo:{
         type: String,
         required: true
@@ -18,11 +14,11 @@ const CalificacionSchema = new mongoose.Schema({
         required: true, 
         default: Date.now() 
     },
-    id_alumno: { 
+    alumno: { 
         type: mongoose.Schema.Types.ObjectId, ref: 'AlumnoSchema', 
         required: true 
     },
-    id_pregunta: { 
+    pregunta: { 
         type: mongoose.Schema.Types.ObjectId, ref: 'PreguntaSchema', 
         required: true 
     }
@@ -31,5 +27,10 @@ const CalificacionSchema = new mongoose.Schema({
 {
     timestamps: true
 });
+
+CalificacionSchema.method('toJSON', function(){
+    const {__v, ...object } = this.toObject();
+    return object;
+})
 
 module.exports = mongoose.model('calificacion', CalificacionSchema);

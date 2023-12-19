@@ -1,10 +1,6 @@
 const mongoose = require('mongoose');
 
 const AlumnoSchema = new mongoose.Schema({
-    id_alumno:{
-        type: Number,
-       // required: true
-    },
     nombre: {
         type: String,
         required: true
@@ -27,17 +23,18 @@ const AlumnoSchema = new mongoose.Schema({
         lowercase: true,
         
     },
-    //id_grupo: { 
-    //    type: mongoose.Schema.Types.ObjectId, ref: 'Grupo'
-    //}
+    id_grupo: { 
+        type: mongoose.Schema.Types.ObjectId, ref: 'GrupoSchema'
+}
 },
-
 //se usa para rastrear cuando se guarda y se modifica la base de datos
 {
     timestamps: true
 });
 
-module.exports = mongoose.model('alumno', AlumnoSchema);
+AlumnoSchema.method('toJSON', function(){
+    const {__v, ...object } = this.toObject();
+    return object;
+})
 
-//const Alumno = mongoose.model('alumno', AlumnoSchema);
-//module.exports = Alumno;
+module.exports = mongoose.model('alumno', AlumnoSchema);
