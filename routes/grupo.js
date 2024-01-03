@@ -1,15 +1,21 @@
 const express = require('express');
 const router = express.Router();
-const {validatorCreateItem} = require ("../validators/grupo");
-const {getItems, getItem, createItem} = require ("../controllers/grupo")
+const {validatorCreateItem, validatorGetItem} = require ("../validators/grupo");
+const {getItems, getItem, createItem, updateItem, deleteItem} = require ("../controllers/grupo")
 
 /*Listar los items*/ 
 router.get("/", getItems);
 
 /*Obtener detalle de item*/ 
-router.post("/", /*validatorCreateItem,*/ createItem);
+router.get("/:id", validatorGetItem, getItem);
 
+/**Crear un registro */ 
+router.post("/",validatorCreateItem, createItem);
 
+/**Actualizar un registro */ 
+router.put("/:id", validatorGetItem, validatorCreateItem, updateItem);
 
+/*Eliminar un item*/ 
+router.delete("/:id", validatorGetItem, deleteItem);
 
 module.exports = router;

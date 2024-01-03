@@ -8,9 +8,6 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 
-
-
-
 const port = process.env.PORT || 3000
 
 
@@ -23,6 +20,7 @@ app.listen(port, () => {
 dbConnect()
 
 //renombrar alumno
-const fs = require ('fs');
-fs.renameSync("./models/Alumno.js", "./models/alumno.js");
+//const fs = require ('fs');
+//fs.renameSync("./models/Alumno.js", "/models/alumno.js");
+
 
